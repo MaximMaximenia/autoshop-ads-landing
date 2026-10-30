@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where Your Auto Shop Leaks Ad Money — coordinat.pro</title>
+<meta name="description" content="What one customer really costs you from Google Ads — and the six places the budget disappears before the car ever reaches your bay.">
+<style>
+:root{
+  --bg:#ffffff;
+  --surface:#f6f7f9;
+  --ink:#0e1013;
+  --ink-2:#464e5a;
+  --ink-3:#7b8494;
+  --line:#e1e5ea;
+  --accent:#ffb000;
+  --accent-2:#ff8a00;
+  --danger:#d93025;
+  --ok:#1f8a4c;
+  --radius:16px;
+  --max:1140px;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+h1,h2,h3{line-height:1.08;letter-spacing:-.025em;margin:0;font-weight:800}
+h1{font-size:clamp(38px,6.4vw,68px)}
+h2{font-size:clamp(28px,4.4vw,44px)}
+h3{font-size:clamp(18px,2.2vw,21px);font-weight:700}
+p{margin:0}
+section{padding:68px 0}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+
+/* ---- glowing buttons ---- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:17px 32px;border-radius:999px;border:0;cursor:pointer;font:inherit;
+  font-weight:800;font-size:17px;text-decoration:none;position:relative;
+  background:var(--ink);color:#fff;transition:transform .15s ease,box-shadow .25s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn--glow{
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  color:#1a1205;
+  box-shadow:0 0 0 0 rgba(255,176,0,.6),0 8px 22px rgba(255,138,0,.38);
+  animation:pulse 2.4s infinite;
+}
+.btn--glow:hover{box-shadow:0 0 0 10px rgba(255,176,0,0),0 14px 34px rgba(255,138,0,.5);animation:none}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(255,176,0,.55),0 8px 22px rgba(255,138,0,.35)}
+  70%{box-shadow:0 0 0 16px rgba(255,176,0,0),0 8px 22px rgba(255,138,0,.35)}
+  100%{box-shadow:0 0 0 0 rgba(255,176,0,0),0 8px 22px rgba(255,138,0,.35)}
+}
+@media(prefers-reduced-motion:reduce){.btn--glow{animation:none}}
+.btn--ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn--wa{background:#25d366;color:#07231a}
+.btn--wa:hover{box-shadow:0 12px 28px rgba(37,211,102,.4)}
+.btn--wide{width:100%}
+
+/* ---- nav ---- */
+.nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav__in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-weight:800;font-size:18px;letter-spacing:-.02em}
+.brand span{color:var(--accent-2)}
+.nav .btn{padding:11px 22px;font-size:15px}
+
+/* ---- hero ---- */
+.hero{padding:64px 0 56px}
+.hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:start}
+.hero h1{margin:14px 0 20px}
+.hero h1 em{font-style:normal;color:var(--danger)}
+.hero__sub{font-size:clamp(18px,2.2vw,22px);color:var(--ink-2);max-width:30ch}
+.hero__cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.hero__note{margin-top:16px;font-size:14px;color:var(--ink-3)}
+
+/* ---- calculator ---- */
+.calc{background:var(--ink);color:#fff;border-radius:var(--radius);padding:30px;position:sticky;top:88px}
+.calc h3{font-size:21px}
+.calc__sub{font-size:13px;color:#8d96a5;margin:6px 0 24px}
+.sl{margin-bottom:22px}
+.sl__top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
+.sl__lbl{font-size:14px;color:#c3cad6}
+.sl__val{font-size:21px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.sl input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:#2b3140;outline:none;cursor:pointer}
+.sl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:var(--accent);border:4px solid var(--ink);box-shadow:0 0 0 1px var(--accent),0 0 12px rgba(255,176,0,.6);cursor:grab}
+.sl input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--accent);border:4px solid var(--ink);cursor:grab}
+.chain{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:8px;align-items:center;margin-top:26px;padding-top:24px;border-top:1px solid #2b3140;text-align:center}
+.chain b{display:block;font-size:19px;font-weight:800;font-variant-numeric:tabular-nums}
+.chain u{text-decoration:none;display:block;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:#8d96a5;margin-top:3px}
+.chain i{font-style:normal;color:#5a6373}
+.calc__hero{margin-top:24px;padding-top:22px;border-top:1px solid #2b3140}
+.calc__big{font-size:clamp(42px,5.4vw,56px);font-weight:800;letter-spacing:-.035em;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
+.calc__lbl{font-size:15px;color:#c3cad6;margin-top:8px}
+.calc__foot{margin-top:14px;font-size:13px;color:#8d96a5}
+
+/* ---- pain ---- */
+.pain{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pains{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.p{
+  position:relative;background:var(--bg);border:1px solid var(--line);
+  border-radius:var(--radius);padding:26px 24px 24px;overflow:hidden;
+  transition:transform .25s cubic-bezier(.2,.7,.3,1), box-shadow .25s ease, border-color .25s ease;
+}
+/* тонкая полоса сверху — наливается при появлении и при наведении */
+.p::before{
+  content:"";position:absolute;left:0;top:0;height:3px;width:100%;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.7,.3,1);
+}
+.p:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(14,16,19,.09);border-color:#cfd6de}
+.p:hover::before{transform:scaleX(1)}
+.p b{display:block;font-size:19px;letter-spacing:-.01em;margin-bottom:8px}
+.p span{color:var(--ink-2);font-size:15.5px}
+.p i{
+  font-style:normal;display:block;margin-top:14px;padding-top:12px;
+  border-top:1px dashed var(--line);font-size:13.5px;font-weight:700;color:var(--ok);
+}
+
+/* появление по очереди, когда блок доезжает до экрана */
+.reveal{opacity:0;transform:translateY(18px)}
+.reveal.in{opacity:1;transform:none;transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.3,1)}
+.reveal.in::before{transform:scaleX(1)}
+@media(prefers-reduced-motion:reduce){
+  .reveal,.reveal.in{opacity:1;transform:none;transition:none}
+  .p::before{transform:scaleX(1)}
+}
+
+
+/* ---- три ошибки: то, что обещано в роликах ---- */
+.three{background:var(--ink);color:#fff}
+.three .eyebrow{color:#8d96a5}
+.three h2{color:#fff}
+.three__lead{color:#c3cad6;max-width:56ch;margin-top:12px;font-size:17px}
+.m3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.m{
+  position:relative;background:#16181d;border:1px solid #262a33;border-radius:var(--radius);
+  padding:30px 26px 26px;overflow:hidden;
+  transition:transform .25s cubic-bezier(.2,.7,.3,1),border-color .25s ease,box-shadow .25s ease;
+}
+.m:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 18px 44px rgba(255,138,0,.16)}
+/* крупная цифра фоном — читается как счёт ошибок */
+.m__n{
+  position:absolute;right:14px;top:-18px;font-size:118px;font-weight:800;letter-spacing:-.06em;
+  color:transparent;-webkit-text-stroke:2px #2f343e;line-height:1;pointer-events:none;
+  transition:-webkit-text-stroke-color .25s ease;
+}
+.m:hover .m__n{-webkit-text-stroke-color:var(--accent-2)}
+.m h3{font-size:21px;color:#fff;margin-bottom:10px;position:relative}
+.m p{color:#aeb6c2;font-size:15.5px;position:relative}
+.m__cost{
+  margin-top:16px;padding-top:14px;border-top:1px dashed #2f343e;
+  font-size:14px;font-weight:700;color:var(--accent);position:relative;
+}
+@media(max-width:980px){.m3{grid-template-columns:1fr}}
+
+/* ---- band ---- */
+.band{position:relative;height:clamp(220px,30vw,380px);overflow:hidden}
+.band img{width:100%;height:100%;object-fit:cover;display:block}
+.band__cap{position:absolute;inset:auto 0 0 0;padding:52px 20px 26px;background:linear-gradient(transparent,rgba(10,11,14,.85));color:#fff}
+.band__cap div{max-width:var(--max);margin:0 auto;font-size:clamp(19px,2.8vw,30px);font-weight:800;letter-spacing:-.02em}
+
+/* ---- cases ---- */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.c{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--bg);
+   display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .2s ease}
+.c:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(14,16,19,.10)}
+.c--wide{grid-column:1 / -1;flex-direction:row}
+.c--wide .c__img{width:38%;height:auto;min-height:300px}
+.c--wide .c__in{padding:32px}
+.c__img{width:100%;height:170px;object-fit:cover;display:block}
+.c__in{padding:22px;flex:1;display:flex;flex-direction:column}
+.c__tag{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:800;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);
+  background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px 12px;align-self:flex-start}
+
+/* главная цифра — одна, крупная, с подписью что это */
+.c__big{margin:16px 0 2px;font-size:clamp(34px,4.6vw,52px);font-weight:800;
+  letter-spacing:-.04em;line-height:1;color:var(--ink)}
+.c__big span{color:var(--accent-2)}
+.c__cap{font-size:14px;color:var(--ink-3);font-weight:600}
+
+/* строка фактов: подпись сверху, число снизу — читается как таблица */
+.c__facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px;
+  padding-top:16px;border-top:1px solid var(--line)}
+.c--wide .c__facts{grid-template-columns:repeat(4,1fr)}
+.c__facts div u{text-decoration:none;display:block;font-size:11px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:700;margin-bottom:3px}
+.c__facts div b{font-size:19px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.c__note{margin-top:14px;font-size:14.5px;color:var(--ink-2)}
+
+/* ---- trust ---- */
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px}
+.t{padding:22px;border:1px solid var(--line);border-radius:var(--radius)}
+.t b{display:block;margin-bottom:6px}
+.t span{color:var(--ink-2);font-size:15px}
+
+/* ---- final ---- */
+.final{background:var(--ink);color:#fff;border-radius:var(--radius);padding:clamp(32px,5vw,60px);text-align:center}
+.final h2{margin-bottom:14px}
+.final p{color:#c3cad6;max-width:50ch;margin:0 auto 28px}
+
+/* ---- modal ---- */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(8,9,12,.62);backdrop-filter:blur(6px)}
+.modal.open{display:flex}
+.modal__box{background:var(--bg);border-radius:var(--radius);max-width:440px;width:100%;padding:32px;position:relative;box-shadow:0 30px 70px rgba(0,0,0,.35);max-height:92vh;overflow:auto}
+.modal__x{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:0;background:var(--surface);color:var(--ink);font-size:20px;cursor:pointer;line-height:1}
+.modal h3{font-size:25px;margin-bottom:6px}
+.modal__sub{color:var(--ink-2);font-size:15px;margin-bottom:22px}
+.f{margin-bottom:15px}
+.f label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
+.f input,.f select{width:100%;padding:14px 15px;border:1px solid var(--line);border-radius:11px;font:inherit;background:var(--bg);color:var(--ink)}
+.f input:focus,.f select:focus{outline:2px solid var(--accent);outline-offset:1px}
+.modal small{display:block;margin-top:14px;color:var(--ink-3);font-size:12.5px}
+.msg{display:none;padding:16px;border-radius:11px;margin-top:14px;font-size:15px}
+.msg--ok{background:#e8f6ed;color:#14603a;border:1px solid #bfe3cd}
+.msg--err{background:#fdeceb;color:#8f2a21;border:1px solid #f3c7c3}
+
+footer{padding:34px 0;border-top:1px solid var(--line);color:var(--ink-3);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+.sticky{display:none}
+@media(max-width:980px){
+  .hero__grid{grid-template-columns:1fr;gap:34px}
+  .calc{position:static}
+  .pains,.trust{grid-template-columns:1fr 1fr}
+  .cases{grid-template-columns:1fr 1fr}
+  .c--wide{flex-direction:column}
+  .c--wide .c__img{width:100%;min-height:0;height:188px}
+  .c--wide .c__facts{grid-template-columns:repeat(2,1fr)}
+  section{padding:52px 0}
+}
+@media(max-width:620px){
+  .pains,.trust,.cases{grid-template-columns:1fr}
+  .nav .btn{display:none}
+  .chain{grid-template-columns:1fr;gap:12px}
+  .chain i{display:none}
+  .sticky{display:block;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+  body{padding-bottom:86px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav__in">
+    <div class="brand">MAX<span>.</span>MARKETING</div>
+    <button class="btn btn--glow" data-open>Book a call</button>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div>
+      <p class="eyebrow">Google Ads · Auto repair · U.S.</p>
+      <h1>Clicks come in.<br><em>Cars don't.</em></h1>
+      <p class="hero__sub">Your budget dies between the click and the booked job. Here's exactly where.</p>
+      <div class="hero__cta">
+        <button class="btn btn--glow" data-open>Book a free teardown</button>
+        <a class="btn btn--wa" id="wa-hero" href="#" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-2.9.8.8-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+          WhatsApp me
+        </a>
+      </div>
+      <p class="hero__note">20 minutes. You keep the findings either way.</p>
+    </div>
+
+    <aside class="calc">
+      <h3>What one customer costs you</h3>
+      <p class="calc__sub">Drag. Nothing is sent anywhere.</p>
+
+      <div class="sl">
+        <div class="sl__top"><span class="sl__lbl">Cost per click</span><span class="sl__val" id="v-cpc">$6.00</span></div>
+        <input id="cpc" type="range" min="1" max="25" step="0.5" value="6">
+      </div>
+      <div class="sl">
+        <div class="sl__top"><span class="sl__lbl">Site visitors who enquire</span><span class="sl__val" id="v-cr">4%</span></div>
+        <input id="cr" type="range" min="1" max="20" step="1" value="4">
+      </div>
+      <div class="sl">
+        <div class="sl__top"><span class="sl__lbl">Enquiries that book</span><span class="sl__val" id="v-close">1 in 3</span></div>
+        <input id="close" type="range" min="10" max="80" step="1" value="33">
+      </div>
+
+      <div class="chain">
+        <div><b id="o-click">$6</b><u>1 click</u></div>
+        <i>&rarr;</i>
+        <div><b id="o-lead">$150</b><u>1 enquiry</u></div>
+        <i>&rarr;</i>
+        <div><b id="o-cust">$455</b><u>1 customer</u></div>
+      </div>
+
+      <div class="calc__hero">
+        <div class="calc__big" id="o-big">$455</div>
+        <div class="calc__lbl">is what one car in your bay costs today</div>
+        <div class="calc__foot" id="o-foot">That's 25 clicks to get one job.</div>
+      </div>
+
+      <button class="btn btn--glow btn--wide" data-open style="margin-top:22px">Make it cheaper</button>
+    </aside>
+  </div>
+</section>
+
+<section class="pain">
+  <div class="wrap">
+    <p class="eyebrow">Six leaks</p>
+    <h2 style="margin-top:10px">Every shop I open has at least three</h2>
+    <div class="pains">
+      <div class="p reveal" style="transition-delay:0ms" ><b>Nobody picks up</b><span>Nine calls a week ring out. You paid for all nine.</span><i>Check your call log. Count unanswered.</i></div>
+      <div class="p reveal" style="transition-delay:70ms" ><b>Two checkboxes</b><span>Search Partners and Display are on by default. They eat the budget off-search.</span><i>Campaign → Settings → Networks.</i></div>
+      <div class="p reveal" style="transition-delay:140ms" ><b>Homepage for everything</b><span>He searched "clutch replacement". He got your 2009 founding story.</span><i>Click your own ad from your phone.</i></div>
+      <div class="p reveal" style="transition-delay:210ms" ><b>Six-second load</b><span>A third are gone by second three. Already paid for.</span><i>PageSpeed, Mobile tab, look at LCP.</i></div>
+      <div class="p reveal" style="transition-delay:280ms" ><b>The six-hour reply</b><span>He filled three forms in ten minutes and drove to whoever answered.</span><i>Submit your own form. Time it.</i></div>
+      <div class="p reveal" style="transition-delay:350ms" ><b>Ads that stopped</b><span>Nine days ago. A card expired. You blamed the season.</span><i>Open the account. Check yesterday's spend.</i></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="three">
+  <div class="wrap">
+    <p class="eyebrow">The three mistakes</p>
+    <h2 style="margin-top:10px">What I talk about at the end of every video</h2>
+    <p class="three__lead">These three turn up in almost every account I open — local service shops
+    and online stores alike. None of them is about bidding.</p>
+
+    <div class="m3">
+      <article class="m reveal">
+        <span class="m__n">01</span>
+        <h3>You optimise toward the wrong event</h3>
+        <p>The platform chases the cheapest form fill it can find — and the cheapest one on earth
+        is a person who was never going to pay. Send back the booked job, not the click.</p>
+        <div class="m__cost">Costs you: a lead count that looks great and an empty bay</div>
+      </article>
+
+      <article class="m reveal">
+        <span class="m__n">02</span>
+        <h3>You pay for traffic that isn't searching</h3>
+        <p>Search Partners and Display are on by default. Half the budget leaves search before
+        anyone types your service. Cheap clicks, respectable CTR, silent phone.</p>
+        <div class="m__cost">Costs you: more than half the budget, every month</div>
+      </article>
+
+      <article class="m reveal">
+        <span class="m__n">03</span>
+        <h3>Nobody measures what happens after the click</h3>
+        <p>Missed calls, a six-hour reply, a page that loads in six seconds. Google did its job
+        and handed you the person. The loss happens on your side of the line.</p>
+        <div class="m__cost">Costs you: the customers you already paid for</div>
+      </article>
+    </div>
+
+    <div style="margin-top:34px">
+      <button class="btn btn--glow" data-open>Find which one is yours — free</button>
+    </div>
+  </div>
+</section>
+
+<div class="band">
+  <img src="img/hero.jpg" alt="Auto repair shop with cars on lifts" width="1600" height="1067">
+  <div class="band__cap"><div>The bays are the easy part.</div></div>
+</div>
+
+<section id="cases">
+  <div class="wrap">
+    <p class="eyebrow">Real accounts I run</p>
+    <h2 style="margin:10px 0 10px">Numbers, not promises</h2>
+    <p style="color:var(--ink-2);max-width:56ch">Pulled straight from Google Ads. Shops in Minsk, Belarus — a cheaper market than yours, so read the method, not the dollar figures.</p>
+
+    <div class="cases">
+      <article class="c c--wide">
+        <img class="c__img" src="img/case-sto.jpg" alt="Auto service bay" width="900" height="600">
+        <div class="c__in">
+          <span class="c__tag">Auto service · 22 months</span>
+          <div class="c__big"><span>$2.01</span> per enquiry</div>
+          <div class="c__cap">2,830 calls and form fills, same account, no break since January 2025</div>
+          <p class="c__note">26,700 people visited the site over that period. The account has never been rebuilt — only tightened.</p>
+          <div class="c__facts"><div><u>Enquiries</u><b>2,830</b></div><div><u>Per enquiry</u><b>$2.01</b></div><div><u>Site converts</u><b>10.6%</b></div><div><u>Total spend</u><b>$5.7k</b></div></div>
+        </div>
+      </article>
+
+      <article class="c ">
+        <img class="c__img" src="img/case-sto2.jpg" alt="Mechanic working on a wheel" width="900" height="600" loading="lazy">
+        <div class="c__in">
+          <span class="c__tag">Second shop · cold start</span>
+          <div class="c__big"><span>26</span> enquiries</div>
+          <div class="c__cap">in the first three days of running</div>
+          <div class="c__facts"><div><u>Clicks</u><b>313</b></div><div><u>Per enquiry</u><b>$4.39</b></div><div><u>Spend</u><b>$114</b></div></div>
+        </div>
+      </article>
+
+      <article class="c ">
+        <img class="c__img" src="img/case-tint.jpg" alt="Tinted car" width="900" height="600" loading="lazy">
+        <div class="c__in">
+          <span class="c__tag">Window tinting</span>
+          <div class="c__big"><span>12%</span> of visitors</div>
+          <div class="c__cap">left an enquiry instead of leaving</div>
+          <div class="c__facts"><div><u>Clicks</u><b>142</b></div><div><u>Enquiries</u><b>17</b></div><div><u>Per enquiry</u><b>$2.69</b></div></div>
+        </div>
+      </article>
+
+      <article class="c ">
+        <img class="c__img" src="img/case-ac.jpg" alt="Air conditioner in a living room" width="900" height="600" loading="lazy">
+        <div class="c__in">
+          <span class="c__tag">HVAC install · 5 months</span>
+          <div class="c__big"><span>129</span> enquiries</div>
+          <div class="c__cap">steady every month, May through October</div>
+          <div class="c__facts"><div><u>Enquiries</u><b>129</b></div><div><u>Site converts</u><b>10%</b></div><div><u>Per enquiry</u><b>$8.53</b></div></div>
+        </div>
+      </article>
+
+      <article class="c ">
+        <img class="c__img" src="img/case-b2b.jpg" alt="Industrial pipework" width="900" height="600" loading="lazy">
+        <div class="c__in">
+          <span class="c__tag">B2B · mechanical contracting</span>
+          <div class="c__big"><span>8</span> qualified leads</div>
+          <div class="c__cap">from a $40 test budget, clicks cost $1 each</div>
+          <div class="c__facts"><div><u>Clicks</u><b>39</b></div><div><u>Leads</u><b>7–8</b></div><div><u>Spend</u><b>$40</b></div></div>
+        </div>
+      </article>
+    </div>
+
+    <p style="margin-top:26px;color:var(--ink-3);font-size:15px;max-width:72ch">
+      Screenshots of these accounts are available on the call. Shops are in Minsk, Belarus —
+      a cheaper market than yours, so read the method, not the dollar figures.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">How I work</p>
+    <h2 style="margin-top:10px">No agency games</h2>
+    <div class="trust">
+      <div class="t"><b>Your card, your budget</b><span>Money goes straight to Google. Never through me.</span></div>
+      <div class="t"><b>Your accounts</b><span>Site, ads, passwords. Yours from day one.</span></div>
+      <div class="t"><b>Weekly numbers</b><span>How many enquiries and what each one cost.</span></div>
+      <div class="t"><b>You talk to me</b><span>No account manager. No junior running your account.</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="final">
+      <h2>Want to know where yours leaks?</h2>
+      <p>Read-only access, 20 minutes, a screen recording and a one-page fix list. Free, and yours whether we work together or not.</p>
+      <button class="btn btn--glow" data-open>Book a call</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="sticky"><button class="btn btn--glow btn--wide" data-open>Book a call</button></div>
+
+<footer>
+  <div class="wrap">
+    <span>Google Ads teardowns · Local services &amp; online stores · U.S.</span>
+    <span>coordinat.pro</span>
+  </div>
+</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+  <div class="modal__box">
+    <button class="modal__x" data-close aria-label="Close">&times;</button>
+    <h3 id="m-title">Book your teardown</h3>
+    <p class="modal__sub">Three fields. I reply on WhatsApp, usually the same day.</p>
+    <form id="lead">
+      <div class="f">
+        <label for="f-name">Your name</label>
+        <input id="f-name" name="name" required autocomplete="name" placeholder="Mike">
+      </div>
+      <div class="f">
+        <label for="f-phone">WhatsApp number</label>
+        <input id="f-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+1 555 014 2290">
+      </div>
+      <div class="f">
+        <label for="f-spend">Monthly ad budget</label>
+        <select id="f-spend" name="spend">
+          <option>Not running ads yet</option>
+          <option>Under $1,000</option>
+          <option selected>$1,000 – $3,000</option>
+          <option>$3,000 – $7,000</option>
+          <option>$7,000+</option>
+        </select>
+      </div>
+      <button class="btn btn--glow btn--wide" type="submit" id="send">Send it</button>
+      <small>No newsletter, no sales team. Just me.</small>
+      <div class="msg msg--ok" id="ok">Got it. I'll message you on WhatsApp shortly.</div>
+      <div class="msg msg--err" id="err">WhatsApp should have opened with your details. If not, <a href="#" id="wa">tap here</a>.</div>
+    </form>
+  </div>
+</div>
+
+<script>
+const CONFIG = {
+  endpoint: "lead.php",         // приём заявки на том же домене
+  whatsapp: "995591309793"      // номер для WhatsApp
+};
+
+const $ = id => document.getElementById(id);
+const money = (n,d=0) => "$" + n.toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d});
+
+/* ---------- cost per customer ---------- */
+function calc(){
+  const cpc   = +$("cpc").value;
+  const cr    = +$("cr").value / 100;
+  const close = +$("close").value / 100;
+
+  $("v-cpc").textContent   = money(cpc,2);
+  $("v-cr").textContent    = $("cr").value + "%";
+  $("v-close").textContent = "1 in " + (1/close).toFixed(1).replace(/\.0$/,"");
+
+  const perLead = cpc / cr;
+  const perCust = perLead / close;
+  const clicksPerJob = 1 / (cr * close);
+
+  $("o-click").textContent = money(cpc, cpc % 1 ? 2 : 0);
+  $("o-lead").textContent  = money(perLead);
+  $("o-cust").textContent  = money(perCust);
+  $("o-big").textContent   = money(perCust);
+  $("o-foot").textContent  = "That's " + Math.round(clicksPerJob).toLocaleString("en-US") + " clicks to get one job.";
+}
+["cpc","cr","close"].forEach(id => $(id).addEventListener("input", calc));
+calc();
+
+/* ---------- modal ---------- */
+const modal = $("modal");
+let lastFocus = null;
+function openModal(){
+  lastFocus = document.activeElement;
+  modal.classList.add("open");
+  document.body.style.overflow = "hidden";
+  setTimeout(() => $("f-name").focus(), 60);
+}
+function closeModal(){
+  modal.classList.remove("open");
+  document.body.style.overflow = "";
+  if (lastFocus) lastFocus.focus();
+}
+document.querySelectorAll("[data-open]").forEach(b => b.addEventListener("click", openModal));
+document.querySelectorAll("[data-close]").forEach(b => b.addEventListener("click", closeModal));
+modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && modal.classList.contains("open")) closeModal(); });
+
+/* ---------- source ---------- */
+const q = new URLSearchParams(location.search);
+// какой ролик привёл человека — метка ?v= из описания под видео
+const VIDEOS = {
+  "en01":"Missed calls (auto)", "en02":"Two checkboxes (auto)", "en03":"Ads stopped (auto)",
+  "en04":"Tire-kickers (collision)", "en05":"48 hours (collision)", "en06":"No price (detailing)",
+  "en07":"Feed errors (store)", "en08":"ROAS lie (store)", "en09":"200 leads (school)",
+  "en10":"Wrong students (school)"
+};
+const vid = q.get("v") || "";
+const source = {
+  utm_source: q.get("utm_source") || "",
+  utm_campaign: q.get("utm_campaign") || "",
+  video: vid,
+  videoName: VIDEOS[vid] || "",
+  referrer: document.referrer || "direct"
+};
+
+/* ---------- submit ---------- */
+$("wa").href = "https://wa.me/" + CONFIG.whatsapp;
+
+/* кнопка WhatsApp в первом экране: сразу с готовым сообщением */
+const waHero = $("wa-hero");
+if (waHero){
+  const hi = "Hi Max, I saw your video" + (source.videoName ? " about " + source.videoName : "") +
+             ". Can you look at my Google Ads account?";
+  waHero.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(hi);
+}
+
+/* появление карточек по очереди — ровно один раз, без дрожания */
+const io_ = ("IntersectionObserver" in window)
+  ? new IntersectionObserver((es, ob) => {
+      es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); ob.unobserve(e.target); } });
+    }, { threshold: 0.18 })
+  : null;
+document.querySelectorAll(".reveal").forEach(el => io_ ? io_.observe(el) : el.classList.add("in"));
+$("lead").addEventListener("submit", async e => {
+  e.preventDefault();
+  $("ok").style.display = $("err").style.display = "none";
+
+  for (const id of ["f-name","f-phone"]){
+    if (!$(id).value.trim()){ $(id).focus(); $(id).style.borderColor = "var(--danger)"; return; }
+    $(id).style.borderColor = "";
+  }
+
+  const btn = $("send");
+  btn.disabled = true; btn.textContent = "Sending…";
+
+  const payload = {
+    name:  $("f-name").value.trim(),
+    phone: $("f-phone").value.trim(),
+    spend: $("f-spend").value,
+    calc: {
+      cpc: $("v-cpc").textContent,
+      cr: $("v-cr").textContent,
+      close: $("v-close").textContent,
+      estimate: $("o-big").textContent
+    },
+    ...source
+  };
+
+  try{
+    if (!CONFIG.endpoint) throw new Error("no endpoint");
+    const res = await fetch(CONFIG.endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error("status " + res.status);
+    $("lead").reset();
+    $("ok").style.display = "block";
+  }catch(e2){
+    console.error(e2);
+    const text =
+      "Teardown request%0A" +
+      "Name: " + encodeURIComponent(payload.name) + "%0A" +
+      "Phone: " + encodeURIComponent(payload.phone) + "%0A" +
+      "Budget: " + encodeURIComponent(payload.spend) + "%0A" +
+      (payload.videoName ? "From video: " + encodeURIComponent(payload.videoName) + "%0A" : "") +
+      "Cost per customer now: " + encodeURIComponent(payload.calc.estimate);
+    const link = "https://wa.me/" + CONFIG.whatsapp + "?text=" + text;
+    $("wa").href = link;
+    $("err").style.display = "block";
+    window.open(link, "_blank");
+  }finally{
+    btn.disabled = false; btn.textContent = "Send it";
+  }
+});
+</script>
+</body>
+</html>
