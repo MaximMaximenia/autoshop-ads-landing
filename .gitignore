@@ -1,2 +1,3 @@
 tg.env
 *.env
+*.env.example
