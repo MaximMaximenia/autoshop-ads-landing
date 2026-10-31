@@ -1,0 +1,55 @@
+КАК ЗАЛИТЬ САЙТ НА coordinat.pro
+
+1. Распакуй архив и положи всё содержимое в корень сайта.
+   Это папка, куда смотрит домен: обычно public_html, www или htdocs.
+
+   Должно лежать так:
+
+     public_html/
+       index.html
+       lead.php
+       tg.env
+       .htaccess
+       img/
+
+2. Проверь, что открывается coordinat.pro — должен быть виден заголовок
+   "You pay Google for customers you never get."
+
+3. Проверь заявку: нажми Book a call, заполни форму, отправь.
+   Тебе в Telegram должно прийти сообщение с кнопками WhatsApp и Позвонить.
+
+ЕСЛИ ЗАЯВКА НЕ ПРИШЛА
+
+  - Хостинг должен уметь PHP. Если это GitHub Pages, Netlify или другая
+    статика — PHP там не работает, скажи мне, переделаю по-другому.
+  - Файл tg.env должен лежать рядом с lead.php. В нём две строки:
+    токен бота и твой chat_id. Без него заявки не уходят.
+  - Файлы, которые начинаются с точки (.htaccess), в некоторых файловых
+    менеджерах скрыты. Включи показ скрытых файлов, чтобы не потерять его.
+
+ВАЖНО ПРО tg.env
+
+  В нём лежит токен твоего Telegram-бота. Никуда его не выкладывай
+  и не отправляй. На сервере он закрыт файлом .htaccess — по прямой
+  ссылке не откроется.
+
+  Если хостинг не на Apache (например, nginx), .htaccess не сработает.
+  Тогда скажи мне, какой хостинг, и я дам правило под него.
+
+МЕТКИ РОЛИКОВ
+
+  В описании под каждым роликом ссылка должна быть с меткой, тогда в
+  заявке будет видно, откуда человек пришёл:
+
+    https://coordinat.pro/?v=en01   — Missed calls (автосервис)
+    https://coordinat.pro/?v=en02   — Two checkboxes (автосервис)
+    https://coordinat.pro/?v=en03   — Ads stopped (автосервис)
+    https://coordinat.pro/?v=en04   — Tire-kickers (кузовной)
+    https://coordinat.pro/?v=en05   — 48 hours (кузовной)
+    https://coordinat.pro/?v=en06   — No price (детейлинг)
+    https://coordinat.pro/?v=en07   — Feed errors (магазин)
+    https://coordinat.pro/?v=en08   — ROAS lie (магазин)
+    https://coordinat.pro/?v=en09   — 200 leads (школа)
+    https://coordinat.pro/?v=en10   — Wrong students (школа)
+
+  Это я проставлю сам в описаниях роликов, когда скажешь.
