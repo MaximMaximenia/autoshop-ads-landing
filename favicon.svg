@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Заглушка: тёмный квадрат и янтарная капля — деньги, утекающие из воронки.
+       Замени этот файл и favicon.png на свои, пути в index.html менять не надо. -->
+  <rect width="64" height="64" rx="14" fill="#0e1013"/>
+  <path d="M18 17h28l-10 13v12l-8 5V30z" fill="none" stroke="#ffb000" stroke-width="3.4"
+        stroke-linejoin="round"/>
+  <circle cx="44" cy="46" r="5" fill="#ffb000"/>
+</svg>
