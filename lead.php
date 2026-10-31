@@ -57,9 +57,10 @@ $body = [
     "chat_id"      => $cfg["TG_CHAT"],
     "parse_mode"   => "HTML",
     "text"         => implode("\n", $lines),
+    /* Только WhatsApp: ссылку вида tel: Telegram в кнопках не принимает
+       и отбивает всё сообщение целиком. Номер в тексте и так кликабелен. */
     "reply_markup" => json_encode(["inline_keyboard" => [[
         ["text" => "Написать в WhatsApp", "url" => "https://wa.me/" . $wa],
-        ["text" => "Позвонить",           "url" => "tel:" . $phone],
     ]]]),
 ];
 
@@ -70,9 +71,15 @@ curl_setopt_array($ch, [
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_TIMEOUT        => 12,
 ]);
-curl_exec($ch);
+$res  = curl_exec($ch);
 $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
 if ($code === 200) { echo '{"ok":true}'; }
-else { http_response_code(502); echo '{"ok":false,"error":"telegram"}'; }
+else {
+    http_response_code(502);
+    $d = json_decode((string)$res, true);
+    echo json_encode(["ok" => false, "error" => "telegram",
+                      "detail" => $d["description"] ?? "no response"],
+                     JSON_UNESCAPED_UNICODE);
+}

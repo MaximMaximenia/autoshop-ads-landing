@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "z6hhjh3myl");
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Three Google Ads Mistakes Draining Your Budget — coordinat.pro</title>
@@ -565,6 +572,13 @@ const source = {
   referrer: document.referrer || "direct"
 };
 
+/* Clarity: помечаем сессию роликом, с которого пришёл человек, —
+   тогда в записях видно, кто уходит, а кто остаётся, по источнику. */
+if (window.clarity){
+  clarity("set", "video", source.video || "direct");
+  if (source.videoName) clarity("set", "videoName", source.videoName);
+}
+
 /* ---------- submit ---------- */
 $("wa").href = "https://wa.me/" + CONFIG.whatsapp;
 
@@ -616,6 +630,7 @@ $("lead").addEventListener("submit", async e => {
       body: JSON.stringify(payload)
     });
     if (!res.ok) throw new Error("status " + res.status);
+    if (window.clarity) clarity("set", "lead", "sent");
     $("lead").reset();
     $("ok").style.display = "block";
   }catch(e2){
