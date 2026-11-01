@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Контент-план на 20 роликов</title>
+<meta name="description" content="Двадцать тем под английский канал, разбор заставок лидеров и структура сценария на пять минут.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  --paper:#ffffff; --sand:#f4f3f0; --ink:#141414; --ink-2:#55544f; --ink-3:#8b8a83;
+  --line:#e3e1dc; --amber:#e09200; --dead:#b4341f; --ok:#2f7d4f;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+.deck{height:100%;overflow-y:auto;scroll-snap-type:y mandatory;scroll-behavior:smooth}
+.slide{min-height:100%;scroll-snap-align:start;display:flex;align-items:center;
+  padding-block:68px 92px;border-bottom:1px solid var(--line)}
+.slide:last-child{border-bottom:0}
+.inner{width:100%;max-width:1000px;margin:0 auto;
+  padding-left:max(20px,env(safe-area-inset-left,0px));
+  padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+h1{font-family:var(--display);font-weight:900;font-size:clamp(32px,6.2vw,58px);line-height:1;
+  letter-spacing:-.03em;margin:0 0 20px;text-wrap:balance}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(24px,3.8vw,38px);line-height:1.08;
+  letter-spacing:-.025em;margin:0 0 14px;text-wrap:balance}
+h3{font-family:var(--display);font-weight:700;font-size:17px;margin:0 0 3px;letter-spacing:-.01em}
+p{margin:0 0 14px;max-width:68ch}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 14px}
+.lede{font-size:clamp(18px,2.1vw,21px);color:var(--ink-2);max-width:62ch}
+.note{font-size:14px;color:var(--ink-3)}
+strong{font-weight:600}
+a{color:var(--ink);text-decoration-color:var(--amber);text-decoration-thickness:2px;text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:2px}
+
+.facts{display:flex;flex-wrap:wrap;gap:14px 40px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
+.fact b{display:block;font-family:var(--display);font-weight:900;font-size:28px;line-height:1.05;font-variant-numeric:tabular-nums}
+.fact span{display:block;font-size:13px;color:var(--ink-3)}
+
+.verdict{background:var(--sand);border-left:5px solid var(--amber);padding:22px 24px;margin:0 0 20px}
+.verdict p:last-child{margin-bottom:0}
+.verdict .big{font-family:var(--display);font-weight:800;font-size:clamp(18px,2.2vw,22px);
+  line-height:1.24;letter-spacing:-.015em;margin-bottom:10px}
+
+.scroller{overflow-x:auto;border:1px solid var(--line);border-radius:7px}
+table{border-collapse:collapse;width:100%;min-width:680px;font-size:14.5px}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);
+  text-align:left;font-weight:500;padding:10px 13px;background:var(--sand);border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.n{font-family:var(--mono);color:var(--amber);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.w{color:var(--ink-2);min-width:200px}
+.pill{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  padding:2px 7px;border-radius:3px;background:var(--sand);color:var(--ink-3);border:1px solid var(--line);white-space:nowrap}
+.pill.w{border-color:#d8cdaa;background:#fbf4e2;color:#8a6a12}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.box{border:1px solid var(--line);border-radius:7px;padding:20px 22px}
+.box.fill{background:var(--sand)}
+.box .tag{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:8px}
+.box p{margin:0;font-size:15px;color:var(--ink-2)}
+.box ul{margin:10px 0 0;padding-left:18px;font-size:15px;color:var(--ink-2)}
+.box li{margin-bottom:6px}
+
+.beats{border:1px solid var(--line);border-radius:7px;overflow:hidden}
+.beat{display:grid;grid-template-columns:86px 1fr;gap:16px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.beat:last-child{border-bottom:0}
+.beat:nth-child(odd){background:var(--sand)}
+.beat .t{font-family:var(--mono);font-size:13px;color:var(--amber);font-variant-numeric:tabular-nums;padding-top:2px}
+.beat p{margin:0;font-size:14.5px;color:var(--ink-2);max-width:64ch}
+
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:12px max(20px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));
+  background:color-mix(in srgb, var(--paper) 88%, transparent);backdrop-filter:blur(8px);border-top:1px solid var(--line)}
+.dots{display:flex;flex-wrap:wrap;gap:6px}
+.dot{width:9px;height:9px;border-radius:50%;border:0;padding:0;cursor:pointer;background:var(--line);transition:background .15s}
+.dot[aria-current="true"]{background:var(--amber)}
+.dot:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.counter{font-family:var(--mono);font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums;white-space:nowrap}
+.hint{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.06em}
+
+@media (max-width:820px){.grid2{grid-template-columns:1fr}.slide{min-height:auto;padding-block:46px 54px}.deck{scroll-snap-type:none}.hint{display:none}}
+@media (max-width:520px){body{font-size:16px}.beat{grid-template-columns:62px 1fr;gap:11px;padding:13px 14px}.facts{gap:12px 24px}}
+@media (prefers-reduced-motion:reduce){.deck{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="deck" id="deck">
+
+  <section class="slide"><div class="inner">
+    <p class="eyebrow">Контент-план · 1 ноября 2026</p>
+    <h1>Двадцать роликов,<br>заставки и сценарий</h1>
+    <p class="lede">План на два месяца вперёд, разбор заставок у тех, кто набирает,
+    и структура сценария под пять минут — чтобы синтезированный голос дослушали до конца.</p>
+    <div class="facts">
+      <div class="fact"><b>20</b><span>роликов в плане</span></div>
+      <div class="fact"><b>7 / 13</b><span>широких / узких</span></div>
+      <div class="fact"><b>4:30</b><span>целевой хронометраж</span></div>
+      <div class="fact"><b>12</b><span>заставок разобрано</span></div>
+    </div>
+  </div></section>
+
+  <section class="slide"><div class="inner">
+    <p class="eyebrow">Заставки · что общего у набравших</p>
+    <h2>Шесть приёмов, которые повторяются</h2>
+    <div class="grid2">
+      <div class="box fill">
+        <p class="tag">Приём первый</p>
+        <h3>Ноль в интерфейсной плашке</h3>
+        <p>Самый сильный крючок из всех. «Conversions 0.00», «Clicks 0», «0% IMPRESSIONS».
+        Не скриншот, а перерисованная крупная плашка. Владелец узнаёт свой экран и свою панику.</p>
+      </div>
+      <div class="box">
+        <p class="tag">Приём второй</p>
+        <h3>Лицо с одной эмоцией</h3>
+        <p>В десяти заставках из двенадцати. Не улыбка — недоумение, злость или испуг.
+        Глаза в камеру, рот открыт. У нас лица рисует GPT, это повторяемо.</p>
+      </div>
+      <div class="box">
+        <p class="tag">Приём третий</p>
+        <h3>WHY? отдельным словом</h3>
+        <p>У трёх из двенадцати. Вопрос крупнее остального текста, часто с объёмом и тенью.
+        Работает как незакрытая петля прямо на обложке.</p>
+      </div>
+      <div class="box fill">
+        <p class="tag">Приём четвёртый</p>
+        <h3>Логотип Google Ads как якорь</h3>
+        <p>В пяти из двенадцати. Треугольник из трёх цветов читается мгновенно и говорит
+        «это про твою рекламу» без единого слова.</p>
+      </div>
+      <div class="box">
+        <p class="tag">Приём пятый</p>
+        <h3>Два-три слова, не больше</h3>
+        <p>«WASTING MONEY?», «20 WAYS TO GET CUSTOMERS», «APPROVED BUT NOT RUNNING».
+        Всё, что длиннее, на телефоне не читается.</p>
+      </div>
+      <div class="box">
+        <p class="tag">Приём шестой</p>
+        <h3>Один цвет на удар</h3>
+        <p>Красный на потерю, зелёный на результат, жёлтый на предупреждение.
+        Ровно один акцентный цвет на заставку, остальное чёрно-белое.</p>
+      </div>
+    </div>
+    <p class="note" style="margin-top:16px">Разобраны: Hormozi 1,6M · Adam Erhart 1,4M и 124K ·
+    20 Ways 215K · Sabri Suby 177K · Tradesman 76K и 17K · Ben Heath 452K · Aaron Young 55K и 16K ·
+    MoreMozi 23K · Daryl Mander 7,6K.</p>
+  </div></section>
+
+  <section class="slide"><div class="inner">
+    <p class="eyebrow">Заставки · что меняем у нас</p>
+    <h2>Чего нам не хватает</h2>
+    <div class="verdict">
+      <p class="big">У нас есть лицо и текст. Нет плашки с цифрой и нет логотипа Google Ads.</p>
+      <p>Это два приёма, которые не требуют ни съёмки, ни новых генераций — они рисуются
+      поверх готовой заставки.</p>
+    </div>
+    <div class="grid2">
+      <div class="box">
+        <p class="tag">Добавляем</p>
+        <h3>Плашку с мёртвой цифрой</h3>
+        <p>Прямоугольник с подписью и значением, как в интерфейсе: «Calls answered — 4 of 14»,
+        «Conversions — 0.00», «Budget left — $0». Красная заливка на потере.</p>
+      </div>
+      <div class="box">
+        <p class="tag">Добавляем</p>
+        <h3>Треугольник Google Ads</h3>
+        <p>В угол, размером примерно в седьмую часть кадра. Мгновенно говорит, о чём ролик,
+        и отличает нас от общемаркетинговых заставок.</p>
+      </div>
+      <div class="box fill">
+        <p class="tag">Оставляем</p>
+        <h3>Лицо и два слова</h3>
+        <p>Это у нас уже работает и сделано так же, как у лидеров. Трогать не будем.</p>
+      </div>
+      <div class="box fill">
+        <p class="tag">Убираем</p>
+        <h3>Третью строку текста</h3>
+        <p>Где она есть — убрать. На телефоне превращается в серую кашу и крадёт место
+        у плашки с цифрой.</p>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="slide"><div class="inner">
+    <p class="eyebrow">Сценарий</p>
+    <h2>Почему два с половиной мало, а пять — правильно</h2>
+    <p>Ты прав насчёт удержания: синтезированный голос на длинной дистанции теряет внимание
+    быстрее живого. Но лечится это не укорачиванием, а структурой.</p>
+    <p><strong>Короткий ролик не даёт алгоритму данных.</strong> Две минуты досмотра — слабый
+    сигнал. Пять минут с удержанием 45% YouTube читает как сильное видео и начинает показывать
+    шире. Все разобранные победители идут от десяти до двадцати пяти минут.</p>
+    <div class="verdict">
+      <p class="big">Решение: пять минут, но нарезанных на короткие блоки с перезапуском интереса каждые 40 секунд.</p>
+      <p>Зритель не слушает пятиминутную лекцию — он смотрит семь полуминутных кусков,
+      каждый из которых начинается с новой зацепки.</p>
+    </div>
+  </div></section>
+
+  <section class="slide"><div class="inner">
+    <p class="eyebrow">Сценарий · раскладка</p>
+    <h2>Структура ролика на 4:30</h2>
+    <div class="beats">
+      <div class="beat"><div class="t">0:00–0:12</div><div>
+        <h3>Удар без вступления</h3>
+        <p>Сразу цифра и потеря. «Nine calls a week ring out. You paid for all nine.»
+        Никаких «в этом видео я расскажу» — это главный убийца удержания.</p></div></div>
+      <div class="beat"><div class="t">0:12–0:35</div><div>
+        <h3>Обещание и петля</h3>
+        <p>Что зритель узнает и чего не узнает до конца. «Третья причина — та,
+        из-за которой это не видно в отчёте. О ней в конце.»</p></div></div>
+      <div class="beat"><div class="t">0:35–1:20</div><div>
+        <h3>Блок первый: почему так вышло</h3>
+        <p>Механика проблемы на одном примере с числами. Заканчивается микровыводом,
+        а не переходом «итак, далее».</p></div></div>
+      <div class="beat"><div class="t">1:20–2:05</div><div>
+        <h3>Блок второй: что это стоит</h3>
+        <p>Перевод в деньги. Самая удерживающая часть: человек считает свой случай
+        параллельно с тобой.</p></div></div>
+      <div class="beat"><div class="t">2:05–2:50</div><div>
+        <h3>Блок третий: проверка за минуту</h3>
+        <p>Конкретное действие, которое зритель сделает прямо сейчас. Здесь он ставит
+        на паузу — это сигнал удержания, который YouTube считает очень высоко.</p></div></div>
+      <div class="beat"><div class="t">2:50–3:40</div><div>
+        <h3>Блок четвёртый: закрываем петлю</h3>
+        <p>То, что обещали в начале. Самая сильная мысль ролика идёт сюда, а не в начало —
+        иначе дальше слушать незачем.</p></div></div>
+      <div class="beat"><div class="t">3:40–4:15</div><div>
+        <h3>Что делать, если нашёл у себя</h3>
+        <p>Два пути: починить самому — и короткая инструкция; или отдать на разбор.
+        Второй путь звучит как более простой, но не как единственный.</p></div></div>
+      <div class="beat"><div class="t">4:15–4:30</div><div>
+        <h3>Призыв и карточка</h3>
+        <p>COORDINAT.PRO крупно, «link in the description». Без прощаний и просьб
+        подписаться — они срезают последние секунды удержания.</p></div></div>
+    </div>
+    <p class="note" style="margin-top:14px">Это примерно 650–700 слов против нынешних 340.
+    Голоса хватит, озвучка одного ролика — около 1400 символов.</p>
+  </div></section>
+
+  <section class="slide"><div class="inner">
+    <p class="eyebrow">План · первая пятёрка</p>
+    <h2>Что делаем сейчас</h2>
+    <p>Ты просил пять: два узких и два широких плюс один сверху. Пятым взял тему,
+    которая закрывает твою главную силу — девять живых аккаунтов.</p>
+    <div class="scroller">
+    <table>
+      <thead><tr><th>№</th><th>Заголовок</th><th>Полоса</th><th>Ниша</th><th>Плашка на заставке</th></tr></thead>
+      <tbody>
+        <tr><td class="n">01</td><td>Your ads are approved. So why is nobody calling?</td>
+          <td><span class="pill">узкая</span></td><td>автосервис</td><td class="w">Calls answered — 4 of 14</td></tr>
+        <tr><td class="n">02</td><td>The one checkbox that sends half your budget off Google</td>
+          <td><span class="pill">узкая</span></td><td>все</td><td class="w">Off-search spend — 54%</td></tr>
+        <tr><td class="n">03</td><td>$300 a month on ads. Is that enough? Honest answer.</td>
+          <td><span class="pill w">широкая</span></td><td>все</td><td class="w">Cost per customer — $455</td></tr>
+        <tr><td class="n">04</td><td>Why cheap clicks are the most expensive thing you buy</td>
+          <td><span class="pill w">широкая</span></td><td>все</td><td class="w">Clicks 1.66K · Sales 0</td></tr>
+        <tr><td class="n">05</td><td>I opened 9 accounts in one niche. All 9 had this on.</td>
+          <td><span class="pill w">широкая</span></td><td>все</td><td class="w">9 of 9 accounts</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="note" style="margin-top:14px">Эти пять собираю после того, как заверишь монтаж.
+    Голос переписываю под 4:30, заставки — с плашками.</p>
+  </div></section>
+
+  <section class="slide"><div class="inner">
+    <p class="eyebrow">План · ролики 6–13</p>
+    <h2>Узкая полоса: на заявки</h2>
+    <div class="scroller">
+    <table>
+      <thead><tr><th>№</th><th>Заголовок</th><th>Ниша</th><th>Проверка в конце</th></tr></thead>
+      <tbody>
+        <tr><td class="n">06</td><td>Body shops: why insurance jobs never see your ad</td><td>кузовной</td>
+          <td class="w">Загугли «collision repair near me» с телефона</td></tr>
+        <tr><td class="n">07</td><td>Google says 40 conversions. Your bank says 6 orders.</td><td>магазин</td>
+          <td class="w">Сверь отчёт за месяц с выпиской</td></tr>
+        <tr><td class="n">08</td><td>Course ads bring students who never finish. Here's why.</td><td>школа</td>
+          <td class="w">Посмотри долю дошедших до конца по источнику</td></tr>
+        <tr><td class="n">09</td><td>Detailing at $40 a lead. The number nobody checks.</td><td>детейлинг</td>
+          <td class="w">Раздели расход на число записей, а не заявок</td></tr>
+        <tr><td class="n">10</td><td>Your best ad is the one you paused last month</td><td>автосервис</td>
+          <td class="w">Открой остановленные кампании, посмотри их CPA</td></tr>
+        <tr><td class="n">11</td><td>Nine days of zero spend and nobody noticed</td><td>все</td>
+          <td class="w">Открой расход за вчера. Он нулевой?</td></tr>
+        <tr><td class="n">12</td><td>You're bidding against yourself in three campaigns</td><td>магазин</td>
+          <td class="w">Поиск по одному запросу в двух кампаниях</td></tr>
+        <tr><td class="n">13</td><td>The six-hour reply that costs you the job</td><td>все ниши услуг</td>
+          <td class="w">Отправь заявку себе и засеки время</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div></section>
+
+  <section class="slide"><div class="inner">
+    <p class="eyebrow">План · ролики 14–20</p>
+    <h2>Широкая полоса: на охват</h2>
+    <div class="scroller">
+    <table>
+      <thead><tr><th>№</th><th>Заголовок</th><th>Зацепка</th></tr></thead>
+      <tbody>
+        <tr><td class="n">14</td><td>Your ad is running. Your competitor is on top. Same budget.</td>
+          <td class="w">Ситуация, которую владелец видит, когда гуглит себя</td></tr>
+        <tr><td class="n">15</td><td>Google spent today's budget before lunch. Here's where it went.</td>
+          <td class="w">Понятная боль, видно в отчёте за минуту</td></tr>
+        <tr><td class="n">16</td><td>The first 10 words of your ad decide everything</td>
+          <td class="w">Разбор чужих объявлений из выдачи — съёмка только из картинок</td></tr>
+        <tr><td class="n">17</td><td>Why your phone number in the ad makes it expensive</td>
+          <td class="w">Контринтуитивно, спорно, собирает комментарии</td></tr>
+        <tr><td class="n">18</td><td>Seasonal business: when to turn ads off (and when not to)</td>
+          <td class="w">Сезонность — боль всех локальных услуг разом</td></tr>
+        <tr><td class="n">19</td><td>What a $5,000 account looks like from the inside</td>
+          <td class="w">Любопытство: показать устройство живого аккаунта</td></tr>
+        <tr><td class="n">20</td><td>I let Google optimise for 30 days. Here's the bill.</td>
+          <td class="w">История с исходом — формат ролика Бена Хита на 27K</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="note" style="margin-top:14px">Ролик 20 требует реальных данных за месяц.
+    Ставлю последним — к тому моменту они будут.</p>
+  </div></section>
+
+  <section class="slide"><div class="inner">
+    <p class="eyebrow">Порядок выпуска</p>
+    <h2>Как раскладывать по дням</h2>
+    <div class="grid2">
+      <div class="box fill">
+        <p class="tag">Пропорция</p>
+        <h3>Один широкий на два узких</h3>
+        <p>Широкий тянет показы и приводит новых. Узкие ловят тех, кто после него
+        остался на канале, и превращают в заявки.</p>
+      </div>
+      <div class="box">
+        <p class="tag">Темп</p>
+        <h3>Три ролика в неделю</h3>
+        <p>Двадцать роликов — это семь недель. Ежедневный выпуск при пяти минутах
+        не вытянуть по качеству, а алгоритму хватает трёх.</p>
+      </div>
+      <div class="box">
+        <p class="tag">Первые две недели</p>
+        <h3>Начинаем с узких</h3>
+        <p>Пока подписчиков нет, широкий ролик уйдёт в пустоту. Узкие ловят поиск,
+        а он работает без аудитории.</p>
+      </div>
+      <div class="box fill">
+        <p class="tag">Контроль</p>
+        <h3>Смотрим CTR, не просмотры</h3>
+        <p>Через две недели у каждого ролика будет CTR заставки. Ниже 4% — меняем заставку,
+        ролик не трогаем. Это самая дешёвая правка из возможных.</p>
+      </div>
+    </div>
+    <p class="note" style="margin-top:20px">Разбор под канал Max | Google Ads Teardowns · coordinat.pro</p>
+  </div></section>
+
+</main>
+
+<nav class="nav" aria-label="Навигация по слайдам">
+  <div class="dots" id="dots"></div>
+  <span class="hint">← → листать</span>
+  <span class="counter" id="counter">1 / 9</span>
+</nav>
+
+<script>
+(function(){
+  var deck=document.getElementById('deck');
+  var slides=[].slice.call(deck.querySelectorAll('.slide'));
+  var dots=document.getElementById('dots');
+  var counter=document.getElementById('counter');
+  var current=0;
+  slides.forEach(function(s,i){
+    var b=document.createElement('button');
+    b.className='dot'; b.type='button';
+    b.setAttribute('aria-label','Слайд '+(i+1));
+    b.addEventListener('click',function(){go(i);});
+    dots.appendChild(b);
+  });
+  var buttons=[].slice.call(dots.children);
+  function mark(i){
+    current=i;
+    buttons.forEach(function(b,k){b.setAttribute('aria-current',k===i?'true':'false');});
+    counter.textContent=(i+1)+' / '+slides.length;
+  }
+  function go(i){
+    i=Math.max(0,Math.min(slides.length-1,i));
+    slides[i].scrollIntoView({block:'start'});
+    mark(i);
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting&&e.intersectionRatio>0.5) mark(slides.indexOf(e.target)); });
+    },{threshold:[0.5]});
+    slides.forEach(function(s){io.observe(s);});
+  }
+  document.addEventListener('keydown',function(e){
+    if(e.target.closest('a, button')) return;
+    if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();go(current+1);}
+    if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(current-1);}
+    if(e.key==='Home'){e.preventDefault();go(0);}
+    if(e.key==='End'){e.preventDefault();go(slides.length-1);}
+  });
+  mark(0);
+})();
+</script>
+</body>
+</html>
